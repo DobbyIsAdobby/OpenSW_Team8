@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1562053099}
+      - m_Target: {fileID: 1562053100}
         m_TargetAssemblyTypeName: Record_Button, Assembly-CSharp
         m_MethodName: DeactivateObject
         m_Mode: 1
@@ -427,7 +427,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1083091163}
+      - m_Target: {fileID: 1083091164}
         m_TargetAssemblyTypeName: LoadGame, Assembly-CSharp
         m_MethodName: OnClickLoadGame
         m_Mode: 1
@@ -599,7 +599,7 @@ GameObject:
   - component: {fileID: 671098833}
   - component: {fileID: 671098835}
   - component: {fileID: 671098834}
-  - component: {fileID: 671098836}
+  - component: {fileID: 671098837}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -668,7 +668,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671098832}
   m_CullTransparentMesh: 1
---- !u!114 &671098836
+--- !u!114 &671098837
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -677,7 +677,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 671098832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4350a949d507f34ca0b0213612976a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 42db5ec166ce28e4f8a322b6dd42773d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &675265616
@@ -763,7 +763,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 813795086}
+      - m_Target: {fileID: 813795087}
         m_TargetAssemblyTypeName: Record_Button, Assembly-CSharp
         m_MethodName: ActivateObject
         m_Mode: 1
@@ -872,8 +872,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -969,7 +969,7 @@ GameObject:
   - component: {fileID: 813795083}
   - component: {fileID: 813795085}
   - component: {fileID: 813795084}
-  - component: {fileID: 813795086}
+  - component: {fileID: 813795087}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -1038,7 +1038,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 813795082}
   m_CullTransparentMesh: 1
---- !u!114 &813795086
+--- !u!114 &813795087
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1047,7 +1047,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 813795082}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58ad081a8ea3ce446ae7dbeecbda9971, type: 3}
+  m_Script: {fileID: 11500000, guid: 72d43a630cdda2e41b9d1ee4910344d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 1807411497}
@@ -1159,7 +1159,7 @@ GameObject:
   - component: {fileID: 1083091160}
   - component: {fileID: 1083091162}
   - component: {fileID: 1083091161}
-  - component: {fileID: 1083091163}
+  - component: {fileID: 1083091164}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -1228,7 +1228,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1083091159}
   m_CullTransparentMesh: 1
---- !u!114 &1083091163
+--- !u!114 &1083091164
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1237,7 +1237,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1083091159}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc126dae83f68d419b0eff38294d627, type: 3}
+  m_Script: {fileID: 11500000, guid: 6cdf47375cca1bd4ab2f623ddc59bb05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1375401477
@@ -1356,7 +1356,7 @@ GameObject:
   - component: {fileID: 1562053096}
   - component: {fileID: 1562053098}
   - component: {fileID: 1562053097}
-  - component: {fileID: 1562053099}
+  - component: {fileID: 1562053100}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -1425,7 +1425,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1562053095}
   m_CullTransparentMesh: 1
---- !u!114 &1562053099
+--- !u!114 &1562053100
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1434,7 +1434,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1562053095}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58ad081a8ea3ce446ae7dbeecbda9971, type: 3}
+  m_Script: {fileID: 11500000, guid: 72d43a630cdda2e41b9d1ee4910344d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 1807411497}
@@ -1623,7 +1623,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 671098836}
+      - m_Target: {fileID: 671098837}
         m_TargetAssemblyTypeName: QuitButtom, Assembly-CSharp
         m_MethodName: OnClickExit
         m_Mode: 1
