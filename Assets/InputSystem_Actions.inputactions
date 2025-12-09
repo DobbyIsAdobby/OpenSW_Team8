@@ -113,6 +113,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Flag",
+                    "type": "Button",
+                    "id": "603317b0-6f4e-4407-8015-56ffb4b45171",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -542,6 +551,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "RotateMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2c432a6d-6b8a-4c23-b866-1c82dc3280fd",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Flag",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
