@@ -63,8 +63,8 @@ public class OrbitControll : MonoBehaviour
             rotationXY.x += delta.x * rotateSpeed;
             rotationXY.y -= delta.y * rotateSpeed;
 
-            //상하 회전 제한. 90도 넘어가면 뒤집힘 방지
-            rotationXY.y = Mathf.Clamp(rotationXY.y, -85f, 85f);
+            //상하 회전 제한. 90도 넘어가면 뒤집힘 방지 -- 숫자 가시성을 위해 제한 해제 진행(251210)
+            //rotationXY.y = Mathf.Clamp(rotationXY.y, -85f, 85f);
         }
     }
 
