@@ -1,7 +1,23 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class CubeVisualizer : MonoBehaviour
 {
+    [System.Serializable]
+    public struct FaceSetting
+    {
+        public string name;      // 구분용 이름 - 자동으로 설정됨
+        public Vector3 position; // 직접 입력할 위치
+        public Vector3 rotation; // 직접 입력할 회전
+    }
+
+    [Header("Manual Settings")]
+    public FaceSetting[] manualFaceSettings; 
+
+    public TextureManager textureManager;
+    public Material tileCoverMaterial;
+    public Material baseImageMaterial;
+
     [Header("Settings")]
     public Transform targetCube;
     public int gridSize = 10;
@@ -29,6 +45,8 @@ public class CubeVisualizer : MonoBehaviour
     // 생성된 타일들을 관리할 배열 (삭제하거나 바꾸기 위해 필요)
     private GameObject[,,] visualObjects; 
 
+    private List<GameObject> createdBaseImages = new List<GameObject>();
+
     public void InitializeVisuals()
     {
         if (visualObjects != null)
@@ -36,7 +54,18 @@ public class CubeVisualizer : MonoBehaviour
             foreach (var obj in visualObjects) if (obj) Destroy(obj);
         }
 
+        if (createdBaseImages != null)
+        {
+            foreach (var img in createdBaseImages) if (img) Destroy(img);
+            createdBaseImages.Clear();
+        }
+
         visualObjects = new GameObject[6, gridSize, gridSize];
+
+        // 텍스처 매니저 초기화 (랜덤 이미지 뽑기)
+        if (textureManager != null) textureManager.Initialize();
+
+        CreateBaseImages();
 
         // 600개의 타일을 큐브 표면에 생성
         for (int f = 0; f < 6; f++)
@@ -48,6 +77,44 @@ public class CubeVisualizer : MonoBehaviour
                     SpawnObject(f, x, y, tilePrefab, true);
                 }
             }
+        }
+    }
+
+    // 6면의 그림 생성 함수 (수동 좌표 적용으로 변경됨)
+    void CreateBaseImages()
+    {
+        // 수동 설정 데이터가 없으면 에러 로그 출력 후 중단
+        if (manualFaceSettings == null || manualFaceSettings.Length < 6)
+        {
+            Debug.LogError("Inspector에서 'Manual Face Settings'의 Size를 6으로 설정하고 좌표를 입력해주세요.");
+            return;
+        }
+
+        for (int f = 0; f < 6; f++)
+        {
+            GameObject faceImg = GameObject.CreatePrimitive(PrimitiveType.Quad);
+            faceImg.name = $"BaseImage_Face_{f}";
+            
+            // 혹시 모를 collider 제거
+            Destroy(faceImg.GetComponent<Collider>());
+            faceImg.transform.SetParent(transform);
+            
+            // 리스트에 추가
+            createdBaseImages.Add(faceImg);
+
+            // 직접 좌표 지정............................................
+            faceImg.transform.localPosition = manualFaceSettings[f].position;
+            faceImg.transform.localRotation = Quaternion.Euler(manualFaceSettings[f].rotation);
+
+            // 크기 설정
+            faceImg.transform.localScale = new Vector3(cubeSize, cubeSize, 1);
+
+            // 재질 적용
+            Renderer r = faceImg.GetComponent<Renderer>();
+            if (baseImageMaterial != null) r.material = baseImageMaterial;
+
+            // 텍스처 입히기
+            if (textureManager != null) textureManager.ApplyToFace(faceImg, f);
         }
     }
 
@@ -79,8 +146,8 @@ public class CubeVisualizer : MonoBehaviour
                 int count = data.mineCount;
                 if (count > 0 && (count - 1) < numberPrefabs.Length)
                 {
-                     // 배열은 0부터 시작하므로 (개수 - 1)을 해야 정확하게 가져옴.
-                     SpawnObject(f, x, y, numberPrefabs[count - 1], false, true);
+                      // 배열은 0부터 시작하므로 (개수 - 1)을 해야 정확하게 가져옴.
+                      SpawnObject(f, x, y, numberPrefabs[count - 1], false, true);
                 }
             }
         }
@@ -111,6 +178,12 @@ public class CubeVisualizer : MonoBehaviour
         if (isTile)
         {
             obj.transform.localScale = new Vector3(finalScale * 0.5f, finalScale* thicknessMultiplier, finalScale * 0.5f);
+
+            if (textureManager != null)
+            {
+                Renderer r = obj.GetComponentInChildren<Renderer>();
+                if (r != null) r.material = tileCoverMaterial;
+            }
         }
         else if (isMine)
         {
@@ -138,7 +211,7 @@ public class CubeVisualizer : MonoBehaviour
     }
 
     // (Face, x, y) -> (World Position, World Rotation)
-    void GetWorldPose(int face, int x, int y, out Vector3 position, out Quaternion rotation)
+    void GetWorldPose(int face, float x, float y, out Vector3 position, out Quaternion rotation)
     {
         // 1. gird 한 칸의 크기 (큐브 크기 / 그리드 개수)
         float cellSize = cubeSize / gridSize;
@@ -229,8 +302,4 @@ public class CubeVisualizer : MonoBehaviour
         // 검정(0)으로 emission 색상을 초기화하여 강조 제거
         renderer.material.SetColor("_EmissionColor", Color.black);
     }
-
-
-
-
 }
