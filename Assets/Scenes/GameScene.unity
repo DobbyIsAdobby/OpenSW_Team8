@@ -3663,6 +3663,7 @@ GameObject:
   - component: {fileID: 963770314}
   - component: {fileID: 963770313}
   - component: {fileID: 963770316}
+  - component: {fileID: 963770317}
   m_Layer: 0
   m_Name: CubeManager
   m_TagString: Untagged
@@ -3896,6 +3897,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7d628e24ea80ad44b61623bbc33a39f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manualFaceSettings:
+  - name: 
+    position: {x: 0, y: 0, z: -5.01}
+    rotation: {x: 0, y: 0, z: 0}
+  - name: 
+    position: {x: 0, y: 0, z: 5.01}
+    rotation: {x: 180, y: 0, z: 0}
+  - name: 
+    position: {x: 0, y: 5.01, z: 0}
+    rotation: {x: 90, y: 0, z: 90}
+  - name: 
+    position: {x: 5.01, y: 0, z: 0}
+    rotation: {x: 180, y: 90, z: 180}
+  - name: 
+    position: {x: -5.01, y: 0, z: 0}
+    rotation: {x: 0, y: 90, z: 0}
+  - name: 
+    position: {x: 0, y: -5.01, z: 0}
+    rotation: {x: -90, y: -90, z: 0}
+  textureManager: {fileID: 963770317}
+  tileCoverMaterial: {fileID: 2100000, guid: 25e27b1d45f083340b2f705a98cce6f4, type: 2}
+  baseImageMaterial: {fileID: 2100000, guid: 2088fe9e16480d440b3e8e09dd3fadab, type: 2}
   targetCube: {fileID: 723523212}
   gridSize: 10
   cubeSize: 10
@@ -3917,6 +3940,40 @@ MonoBehaviour:
   - {fileID: 6703673482927623457, guid: 34645fa87fee3a64b91b49f9e80cbe1b, type: 3}
   - {fileID: 243823840341340600, guid: 44bfcf2554d74ee45aadc2363ee67dbb, type: 3}
   - {fileID: 8585213569143842772, guid: 11796bfe7776740439608343d3f825fa, type: 3}
+--- !u!114 &963770317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963770312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d157b17fb14a5458e918a3d4927721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomTextures:
+  - {fileID: 2800000, guid: a46b6244df5f4d54bbd3edeb7283b6a8, type: 3}
+  - {fileID: 2800000, guid: 209eb5cf8a772fe47981dfaa913739b6, type: 3}
+  - {fileID: 2800000, guid: a20d8e9b53b51604c98636e1f79c8ee7, type: 3}
+  - {fileID: 2800000, guid: 9297c085f5165294cb12f33859aba6d6, type: 3}
+  - {fileID: 2800000, guid: 1705f07c43f7c994186c1681e093141f, type: 3}
+  - {fileID: 2800000, guid: 0234094806606574b8048b4f3786fd95, type: 3}
+  - {fileID: 2800000, guid: ffc1aabd2ad7e524cbffe253ab52bbbe, type: 3}
+  - {fileID: 2800000, guid: 38c351d5db87bb44196d7bc1541914f3, type: 3}
+  - {fileID: 2800000, guid: 1b8ae3a49b9ccde4196f9988824dddd6, type: 3}
+  - {fileID: 2800000, guid: 64f6a626ff67c744282f654238214b6a, type: 3}
+  - {fileID: 2800000, guid: f3591711e5964c541b498a934a34fe25, type: 3}
+  - {fileID: 2800000, guid: 73cd51841833581478e6566d559f1170, type: 3}
+  - {fileID: 2800000, guid: 6ac9cd92a2cdb0f44a7baeeb0bc9b49a, type: 3}
+  - {fileID: 2800000, guid: 1be42dac07c5e66499386ed0bfc58935, type: 3}
+  - {fileID: 2800000, guid: b9cf2a17a279b844698b9c7a4ebf14e9, type: 3}
+  - {fileID: 2800000, guid: afc37b7b444d9734e9a5ae116968d86a, type: 3}
+  - {fileID: 2800000, guid: b8a50cc0d902d9d4fb19175710be58e6, type: 3}
+  - {fileID: 2800000, guid: eb4346cf5f6195e4fbcee29f6b4e49d4, type: 3}
+  - {fileID: 2800000, guid: 1f7439f553b88024aba2de0df16bd7e4, type: 3}
+  cols: 3
+  rows: 2
 --- !u!1 &971301745
 GameObject:
   m_ObjectHideFlags: 0
