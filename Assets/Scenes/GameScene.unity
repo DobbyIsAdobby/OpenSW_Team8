@@ -3903,9 +3903,11 @@ MonoBehaviour:
   scaleMultiplier: 1
   thicknessMultiplier: 0.5
   numberRotationOffset: {x: -90, y: 0, z: 0}
+  mineScaleFactor: 30
+  mineRotationOffset: {x: -90, y: 0, z: 0}
   tilePrefab: {fileID: 8313518369726324255, guid: 216288b276ee1c345a662374d39b4828, type: 3}
   flagPrefab: {fileID: 5177349285840984714, guid: 9d39106880d4fd9449ea66a879e1f6f7, type: 3}
-  minePrefab: {fileID: 5882208670941593062, guid: a06adee991553c042a28871f3b2321df, type: 3}
+  minePrefab: {fileID: 1800897977992062919, guid: e7676a1891e619b4081ecc4ce36ceaab, type: 3}
   numberPrefabs:
   - {fileID: 5926749545863443940, guid: 79be358ffb60bf949a53a767ddbe8dd2, type: 3}
   - {fileID: 4854381322346425980, guid: 359e2f4830a1d974c9caef0d51c13d2d, type: 3}

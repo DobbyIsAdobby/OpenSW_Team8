@@ -15,6 +15,10 @@ public class CubeVisualizer : MonoBehaviour
     public float thicknessMultiplier = 0.5f; 
     [Tooltip("숫자가 누워있으면 이 값을 조절하세요 (예: 90 or -90)")]
     public Vector3 numberRotationOffset = new Vector3(-90, 0, 0);
+    [Tooltip("지뢰가 너무 작으면 키우세요 (예: 100)")]
+    public float mineScaleFactor = 1.0f; 
+    [Tooltip("지뢰가 회전되어 있다면 조절 (예: 0, 90, 0)")]
+    public Vector3 mineRotationOffset = Vector3.zero;
 
     [Header("Prefabs")]
     public GameObject tilePrefab;  // 타일
@@ -65,7 +69,8 @@ public class CubeVisualizer : MonoBehaviour
         {
             if (data.isMine)
             {
-                SpawnObject(f, x, y, minePrefab, false);
+                //SpawnObject(f, x, y, minePrefab, false);
+                SpawnObject(f, x, y, minePrefab, false, false, true);
             }
             else
             {
@@ -87,7 +92,7 @@ public class CubeVisualizer : MonoBehaviour
     }
 
     // 오브젝트 생성
-    void SpawnObject(int f, int x, int y, GameObject prefab, bool isTile = false, bool isNumber = false)
+    void SpawnObject(int f, int x, int y, GameObject prefab, bool isTile = false, bool isNumber = false, bool isMine = false)
     {
         if (prefab == null) return;
 
@@ -107,8 +112,18 @@ public class CubeVisualizer : MonoBehaviour
         {
             obj.transform.localScale = new Vector3(finalScale * 0.5f, finalScale* thicknessMultiplier, finalScale * 0.5f);
         }
+        else if (isMine)
+        {
+            // 지뢰
+            float mScale = finalScale * mineScaleFactor;
+            obj.transform.localScale = new Vector3(mScale, mScale, mScale * 0.1f);
+
+            // 지뢰 회전 보정 적용
+            obj.transform.localRotation *= Quaternion.Euler(mineRotationOffset);
+        }
         else
         {
+            // 숫자 및 기타
             obj.transform.localScale = new Vector3(finalScale, finalScale, finalScale);
         }
 
