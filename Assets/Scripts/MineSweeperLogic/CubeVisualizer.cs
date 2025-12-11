@@ -173,4 +173,49 @@ public class CubeVisualizer : MonoBehaviour
         position = targetCube.position + (targetCube.rotation * localPos);
         rotation = targetCube.rotation * localRot;
     }
+
+    // 특정 타일을 "강조(Emission)" 해서 빛나게 만드는 함수
+    // face, x, y : 큐브의 (면, 좌표) 위치
+    // color : 강조할 색상 (예: 파란색 → preview, 빨간색 → 지뢰 표시)
+    public void FlashTile(int face, int x, int y, Color color)
+    {
+        // visualObjects 배열에서 해당 위치의 실제 렌더링 객체 가져오기
+        var tileObj = visualObjects[face, x, y];
+        if (tileObj == null) return; // 생성되지 않았으면 종료
+
+        // 타일 prefab의 구조가
+        // 타일(부모)
+        // └─ Mesh 오브젝트(자식)
+        // 형태일 때 부모에는 MeshRenderer가 없음 → 자식에서 MeshRenderer 가져와야 함
+        var renderer = tileObj.GetComponentInChildren<MeshRenderer>(); // 자식까지 검색하여 MeshRenderer 찾기
+        if (renderer == null) return; // 어차피 MeshRenderer 없으면 색을 바꿀 수 없음
+
+        // Emission 기능을 켬 (빛나는 기능)
+        renderer.material.EnableKeyword("_EMISSION");
+
+        // emission 색상 설정 (color * 2f : 빛 강하게)
+        renderer.material.SetColor("_EmissionColor", color * 2f);
+    }
+
+    // 특정 타일의 강조(Emission)를 제거하여 원래 상태로 되돌리는 함수
+    public void UnflashTile(int face, int x, int y)
+    {
+        // (face, x, y)에 해당하는 타일 GameObject 가져오기
+        var tileObj = visualObjects[face, x, y];
+        if (tileObj == null) return;
+
+        // FlashTile과 마찬가지로 자식까지 포함하여 MeshRenderer 찾기
+        var renderer = tileObj.GetComponentInChildren<MeshRenderer>(); // ★ 변경
+        if (renderer == null) return;
+
+        // Emission 비활성화 → 더 이상 빛나지 않음
+        renderer.material.DisableKeyword("_EMISSION");
+
+        // 검정(0)으로 emission 색상을 초기화하여 강조 제거
+        renderer.material.SetColor("_EmissionColor", Color.black);
+    }
+
+
+
+
 }

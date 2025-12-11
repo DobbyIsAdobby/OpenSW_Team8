@@ -5,6 +5,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{E336BC2F-8F08-EE12-2318-40E8AA37ABE3}|Assembly-CSharp.csproj|c:\\opensourcesw\\local_github_project\\assets\\scripts\\ui\\button\\pause_button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E336BC2F-8F08-EE12-2318-40E8AA37ABE3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\button\\pause_button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E336BC2F-8F08-EE12-2318-40E8AA37ABE3}|Assembly-CSharp.csproj|c:\\opensourcesw\\local_github_project\\assets\\scripts\\minesweeperlogic\\cubeminesweeper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E336BC2F-8F08-EE12-2318-40E8AA37ABE3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\minesweeperlogic\\cubeminesweeper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E336BC2F-8F08-EE12-2318-40E8AA37ABE3}|Assembly-CSharp.csproj|c:\\opensourcesw\\local_github_project\\assets\\scripts\\minesweeperlogic\\cubevisualizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E336BC2F-8F08-EE12-2318-40E8AA37ABE3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\minesweeperlogic\\cubevisualizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,9 +32,35 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Button\\Pause_Button.cs",
               "ToolTip": "C:\\OpenSourceSW\\Local_Github_Project\\Assets\\Scripts\\UI\\Button\\Pause_Button.cs",
               "RelativeToolTip": "Assets\\Scripts\\UI\\Button\\Pause_Button.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBMAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T03:44:48.413Z",
+              "WhenOpened": "2025-12-11T08:31:53.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CubeVisualizer.cs",
+              "DocumentMoniker": "C:\\OpenSourceSW\\Local_Github_Project\\Assets\\Scripts\\MineSweeperLogic\\CubeVisualizer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MineSweeperLogic\\CubeVisualizer.cs",
+              "ToolTip": "C:\\OpenSourceSW\\Local_Github_Project\\Assets\\Scripts\\MineSweeperLogic\\CubeVisualizer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MineSweeperLogic\\CubeVisualizer.cs",
+              "ViewState": "AgIAAMgAAAAAAAAAAAAywNMAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T07:35:09.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CubeMinesweeper.cs",
+              "DocumentMoniker": "C:\\OpenSourceSW\\Local_Github_Project\\Assets\\Scripts\\MineSweeperLogic\\CubeMinesweeper.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MineSweeperLogic\\CubeMinesweeper.cs",
+              "ToolTip": "C:\\OpenSourceSW\\Local_Github_Project\\Assets\\Scripts\\MineSweeperLogic\\CubeMinesweeper.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MineSweeperLogic\\CubeMinesweeper.cs",
+              "ViewState": "AgIAADkCAAAAAAAAAAAQwOwBAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T06:21:17.949Z",
               "EditorCaption": ""
             }
           ]

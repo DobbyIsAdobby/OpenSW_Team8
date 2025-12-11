@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 //3차원 (index, x, y) coordinate 사용으로 직관적 표현 진행
 //251209기준 데이터와 로직은 구현완료.. 이걸 이제 MVC 패턴으로 Visualizer를 구현하면될듯
@@ -354,9 +355,146 @@ public class CubeMinesweeper : MonoBehaviour
         }
     }
 
+
+    // 아이템1.
+    public int shieldItemUses = 0;   // 남은 지뢰 보호 횟수
+
+    public void UseShieldItem() // 아이템1 함수
+    {
+        shieldItemUses = 3; // 보호 횟수 3회 제공
+        Debug.Log($"<color=cyan>[아이템1] 지뢰 보호 {shieldItemUses}회 활성화!</color>");
+    }
+
+    // 아이템2.
+    private bool scanModeActive = false; // 스캔 아이템 활성화 여부 확인 bool 변수
+    private bool scanPreviewActive = false;  // 커서 이동 중 프리뷰
+    private (int face, int x, int y)? lastPreviewCenter = null; // 마지막 프리뷰를 표시한 중심 좌표(프리뷰를 지우기 위한 좌표)
+
+    public void UseScanItem() // 아이템2 함수
+    {
+        scanModeActive = true; // 스캔 활성화
+        scanPreviewActive = true; // 마우스 움직임에 따라 프리뷰 표시 시작
+        Debug.Log("<color=cyan>[아이템2] 3×3 스캔 미리보기 활성화</color>");
+    }
+
+    // 아이템2 프리뷰 마우스 움직임
+    void Update()
+    {
+        // 프리뷰가 false 라면 종료
+        if (!scanPreviewActive) return;
+
+        // 마우스 위치에서 face,x,y 가져오기
+        if (!TryGetHitCell(out int f, out int x, out int y))
+            return;
+
+        // 이전 preview 지우기 - 이전 프리뷰 표시 좌표 삭제
+        if (lastPreviewCenter.HasValue)
+        {
+            var prev = lastPreviewCenter.Value;
+            ClearPreview(prev.face, prev.x, prev.y);
+        }
+
+        // 새 preview 표시 - 현재 마우스 위치 기준으로 새로운 파란색 프리뷰 표시
+        ShowPreview(f, x, y);
+
+        // 이번 프리뷰를 다음 프레임에 지우기 위해 저장
+        lastPreviewCenter = (f, x, y);
+    }
+
+    // 스캔 미리보기 3x3 파란색 강조 함수
+    void ShowPreview(int face, int x, int y)
+    {
+        // 3x3 범위
+        for (int dx = -1; dx <= 1; dx++)
+        {
+            for (int dy = -1; dy <= 1; dy++)
+            {
+                // 현재 좌표에서 dx, dy 이동한 셀의 (face, x, y)를 구함
+                CubeTopology.GetNeighbor(face, x, y, dx, dy, gridSize,
+                    out int nf, out int nx, out int ny);
+
+                // face 유효한지 체크
+                if (nf < 0 || nf > 5) continue;
+
+                // x,y 유효 범위 체크
+                if (nx < 0 || nx >= gridSize) continue;
+                if (ny < 0 || ny >= gridSize) continue;
+
+                // 시각적 강조 (파란색)
+                visualizer.FlashTile(nf, nx, ny, Color.cyan);
+            }
+        }
+    }
+
+    // 스캔 미리보기 제거 함수
+    void ClearPreview(int face, int x, int y)
+    {
+        for (int dx = -1; dx <= 1; dx++)
+        {
+            for (int dy = -1; dy <= 1; dy++)
+            {
+                CubeTopology.GetNeighbor(face, x, y, dx, dy, gridSize,
+                    out int nf, out int nx, out int ny);
+
+                if (nf < 0 || nf > 5) continue;
+                if (nx < 0 || nx >= gridSize) continue;
+                if (ny < 0 || ny >= gridSize) continue;
+
+                // 강조 제거
+                visualizer.UnflashTile(nf, nx, ny);
+            }
+        }
+    }
+
+
+    // 스캔 이후 - 3x3 범위에서 지뢰만 빨간색 강조
+    void HighlightMines(int face, int x, int y)
+    {
+        for (int dx = -1; dx <= 1; dx++)
+        {
+            for (int dy = -1; dy <= 1; dy++)
+            {
+                CubeTopology.GetNeighbor(face, x, y, dx, dy, gridSize,
+                    out int nf, out int nx, out int ny);
+
+                if (nf < 0 || nf > 5) continue;
+                if (nx < 0 || nx >= gridSize) continue;
+                if (ny < 0 || ny >= gridSize) continue;
+
+                // 해당 칸이 지뢰면 빨간색 강조 유지
+                if (board[nf, nx, ny].isMine)
+                    visualizer.FlashTile(nf, nx, ny, Color.red);
+            }
+        }
+    }
+
+
+
+
     // 좌표를 받아서 게임 규칙대로 처리하는 함수
     void HandleCellClick(int face, int x, int y)
     {
+
+        // 아이템2
+        if (scanModeActive) // 만약 아이템2를 활성화 했다면
+        {
+            // 미리보기 - 스캔 정리
+            if (lastPreviewCenter.HasValue)
+            {
+                var prev = lastPreviewCenter.Value;
+                ClearPreview(prev.face, prev.x, prev.y);
+            }
+            scanPreviewActive = false;
+            lastPreviewCenter = null;
+
+            // 미리보기 스캔 한 이후 빨간색 지뢰 표시
+            HighlightMines(face, x, y);
+
+            // 아이템2 비활성화 - 아이템2 사용함
+            scanModeActive = false;
+            return;
+        }
+
         CellData cell = board[face, x, y];
 
         // 1. 예외 처리: 이미 열렸거나 깃발이 꽂혀있으면 클릭 무시
@@ -397,9 +535,22 @@ public class CubeMinesweeper : MonoBehaviour
         // 경우 1: 지뢰를 밟음 -> 게임 오버
         if (cell.isMine)
         {
+            // 아이템1. - 보호횟수가 0이 아니라면 게임오버 방지
+            if(shieldItemUses > 0) 
+            {
+                shieldItemUses--;
+
+                // 지뢰를 밟았어도 타일 오픈 - 시각적으로 확인하기 위함
+                cell.isRevealed = true;
+                if (visualizer) visualizer.UpdateVisual(face, x, y, cell);
+                Debug.Log($"<color=yellow>[감나빗!]</color> 지뢰를 밟았지만 보호되었습니다. 남은 보호 횟수: {shieldItemUses}");
+
+                return;
+            }
+
             cell.isRevealed = true;
             if (visualizer) visualizer.UpdateVisual(face, x, y, cell);
-            Debug.Log($"<color=red>게임 오버/color> ({face}, {x},{y})");
+            Debug.Log($"<color=red>게임 오버</color> ({face}, {x},{y})");
             // TODO: 게임오버 UI 호출
         }
         // 경우 2: 빈 땅(0)임 -> Flood Fill 발동!
