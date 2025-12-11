@@ -1,54 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\OpenSourceSW\\Local_Github_Project\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{E336BC2F-8F08-EE12-2318-40E8AA37ABE3}|Assembly-CSharp.csproj|c:\\opensourcesw\\local_github_project\\assets\\scripts\\ui\\button\\pause_button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E336BC2F-8F08-EE12-2318-40E8AA37ABE3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\button\\pause_button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E336BC2F-8F08-EE12-2318-40E8AA37ABE3}|Assembly-CSharp.csproj|c:\\opensourcesw\\local_github_project\\assets\\scripts\\minesweeperlogic\\cubeminesweeper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E336BC2F-8F08-EE12-2318-40E8AA37ABE3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\minesweeperlogic\\cubeminesweeper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Pause_Button.cs",
-              "DocumentMoniker": "C:\\OpenSourceSW\\Local_Github_Project\\Assets\\Scripts\\UI\\Button\\Pause_Button.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Button\\Pause_Button.cs",
-              "ToolTip": "C:\\OpenSourceSW\\Local_Github_Project\\Assets\\Scripts\\UI\\Button\\Pause_Button.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\Button\\Pause_Button.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T03:44:48.413Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CubeMinesweeper.cs",
-              "DocumentMoniker": "C:\\OpenSourceSW\\Local_Github_Project\\Assets\\Scripts\\MineSweeperLogic\\CubeMinesweeper.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\MineSweeperLogic\\CubeMinesweeper.cs",
-              "ToolTip": "C:\\OpenSourceSW\\Local_Github_Project\\Assets\\Scripts\\MineSweeperLogic\\CubeMinesweeper.cs",
-              "RelativeToolTip": "Assets\\Scripts\\MineSweeperLogic\\CubeMinesweeper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T00:39:48.218Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }
