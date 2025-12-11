@@ -18,4 +18,5 @@ public class Menu_Button : MonoBehaviour
     {
         targetObject.SetActive(!targetObject.activeSelf); // 오브젝트가 활성화 돼있으면 비활성화 또는 오브젝트가 비활성화 돼있으면 활성화
     }
+
 }
