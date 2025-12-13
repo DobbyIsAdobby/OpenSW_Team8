@@ -49,6 +49,8 @@ public class CubeVisualizer : MonoBehaviour
 
     public void InitializeVisuals()
     {
+        RecordManager.Instance.StartNewGame(); // 새 게임 시작, RecordManager에 게임 진행 중임을 표시
+
         if (visualObjects != null)
         {
             foreach (var obj in visualObjects) if (obj) Destroy(obj);
