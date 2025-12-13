@@ -35,7 +35,7 @@ public class CubeMinesweeper : MonoBehaviour
     {
         if (context.started)
         {
-            if(Mouse.current == null) return;
+            if (Mouse.current == null) return;
             Vector2 mousePos = Mouse.current.position.ReadValue();
 
             ProcessRaycast(mousePos);
@@ -100,6 +100,7 @@ public class CubeMinesweeper : MonoBehaviour
 
     void HandleReveal(int face, int x, int y)
     {
+        int openedCount = 0;
         CellData cell = board[face, x, y];
 
         // 이미 열렸거나, 깃발이 꽂혀있으면 클릭 무시
@@ -119,7 +120,7 @@ public class CubeMinesweeper : MonoBehaviour
         }
         else if (cell.mineCount == 0)
         {
-            FloodFill(face, x, y);
+            FloodFill(face, x, y, ref openedCount);
         }
         else
         {
@@ -355,12 +356,34 @@ public class CubeMinesweeper : MonoBehaviour
         }
     }
 
+    // 아이템 비용 설정
+    [Header("Item Cost")]
+    public int shieldItemCost = 30; // 아이템1 비용
+    public int scanItemCost = 60;   // 아이템2 비용
 
     // 아이템1.
     public int shieldItemUses = 0;   // 남은 지뢰 보호 횟수
 
     public void UseShieldItem() // 아이템1 함수
     {
+        // ScoreManager 존재 여부 체크
+        if (ScoreManager.Instance == null)
+        {
+            Debug.LogError("ScoreManager가 없습니다!");
+            return;
+        }
+
+        // 아이템 구매 점수 부족 시
+        if (ScoreManager.Instance.score < shieldItemCost)
+        {
+            Debug.Log("<color=red>[아이템1]</color> 점수가 부족합니다.");
+            return;
+        }
+
+        // 점수 차감
+        ScoreManager.Instance.AddScore(-shieldItemCost);
+
+        // 아이템1. 사용
         shieldItemUses = 3; // 보호 횟수 3회 제공
         Debug.Log($"<color=cyan>[아이템1] 지뢰 보호 {shieldItemUses}회 활성화!</color>");
     }
@@ -372,6 +395,24 @@ public class CubeMinesweeper : MonoBehaviour
 
     public void UseScanItem() // 아이템2 함수
     {
+        // ScoreManager 체크
+        if (ScoreManager.Instance == null)
+        {
+            Debug.LogError("ScoreManager가 없습니다!");
+            return;
+        }
+
+        // 아이템 구매 점수 부족 시
+        if (ScoreManager.Instance.score < scanItemCost)
+        {
+            Debug.Log("<color=red>[아이템2]</color> 점수가 부족합니다.");
+            return;
+        }
+
+        // 점수 차감
+        ScoreManager.Instance.AddScore(-scanItemCost);
+
+        // 아이템2. 사용
         scanModeActive = true; // 스캔 활성화
         scanPreviewActive = true; // 마우스 움직임에 따라 프리뷰 표시 시작
         Debug.Log("<color=cyan>[아이템2] 3×3 스캔 미리보기 활성화</color>");
@@ -533,6 +574,7 @@ public class CubeMinesweeper : MonoBehaviour
         }*/
 
         // 경우 1: 지뢰를 밟음 -> 게임 오버
+        int openedCount = 0;
         if (cell.isMine)
         {
             // 아이템1. - 보호횟수가 0이 아니라면 게임오버 방지
@@ -552,21 +594,29 @@ public class CubeMinesweeper : MonoBehaviour
             if (visualizer) visualizer.UpdateVisual(face, x, y, cell);
             Debug.Log($"<color=red>게임 오버</color> ({face}, {x},{y})");
             // TODO: 게임오버 UI 호출
+            ScoreManager.Instance.AddScore(-10); // 지뢰 밟으면 점수 10 차감
+            return;
         }
         // 경우 2: 빈 땅(0)임 -> Flood Fill 발동!
         else if (cell.mineCount == 0)
         {
             // FloodFill 함수가 "열기 + 비주얼 업데이트 + 주변 열기"를 다 해줍니다.
-            FloodFill(face, x, y); 
+            FloodFill(face, x, y, ref openedCount); 
             Debug.Log($"<color=cyan>안전 지대 개방</color> ({face}, {x},{y})");
         }
         // 경우 3: 그냥 숫자임 -> 해당 칸만 염
         else
         {
             cell.isRevealed = true;
+            openedCount = 1; // 타일 하나당 1점
             if (visualizer) visualizer.UpdateVisual(face, x, y, cell);
             Debug.Log($"<color=green>안전 지대 (숫자)</color> ({face}, {x},{y})");
         }
+
+        int scoreToAdd = openedCount; // 타일 +1 - 점수 추가
+        ScoreManager.Instance.AddScore(scoreToAdd);
+
+        Debug.Log($"열린 타일: {openedCount}, 점수 +{scoreToAdd}");
     }
 
     //지뢰 심기
@@ -641,7 +691,7 @@ public class CubeMinesweeper : MonoBehaviour
     }
 
     // 빈 땅일 때 주변을 연쇄적으로 여는 재귀 함수
-    void FloodFill(int face, int x, int y)
+    void FloodFill(int face, int x, int y, ref int openedCount)
     {
         // 1. 범위 체크
         if (face < 0 || face >= 6 || x < 0 || x >= gridSize || y < 0 || y >= gridSize) return;
@@ -654,6 +704,7 @@ public class CubeMinesweeper : MonoBehaviour
 
         // 3. 현재 셀 열기
         cell.isRevealed = true;
+        openedCount++; // 타일 수 체크(오픈한 타일 수)
         if (visualizer) visualizer.UpdateVisual(face, x, y, cell);
 
         // 4. 만약 현재 셀이 숫자를 가지고 있다면(1~8), 여기서 멈춤
@@ -674,7 +725,7 @@ public class CubeMinesweeper : MonoBehaviour
                 // 유효한 면이라면 재귀 호출
                 if (nFace != -1)
                 {
-                    FloodFill(nFace, nX, nY);
+                    FloodFill(nFace, nX, nY, ref openedCount);
                 }
             }
         }
