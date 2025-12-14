@@ -54,7 +54,7 @@ public class ScoreManager : MonoBehaviour
     {
         // scoreText가 인스펙터에서 정상적으로 연결되어 있다면
         if (scoreText != null)
-            scoreText.text = $"SCORE : {score}";
+            scoreText.text = $"점수 : {score}";
         else // 연결이 안 되었을 경우 경고 출력
             Debug.LogWarning("ScoreText not Connect");
     }
