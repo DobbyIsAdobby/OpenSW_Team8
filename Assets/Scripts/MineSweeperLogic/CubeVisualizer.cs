@@ -49,7 +49,14 @@ public class CubeVisualizer : MonoBehaviour
 
     public void InitializeVisuals()
     {
-        RecordManager.Instance.StartNewGame(); // 새 게임 시작, RecordManager에 게임 진행 중임을 표시
+        if (RecordManager.Instance != null)
+        {
+            RecordManager.Instance.StartNewGame(); // 새 게임 시작 기록
+        }
+        else
+        {
+            Debug.LogWarning("RecordManager가 씬에 없습니다. (GameScene 직접 실행 중?) 기록 저장을 건너뜁니다.");
+        }
 
         if (visualObjects != null)
         {
