@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\user\\OneDrive\\Desktop\\pj\\OpenSW_Team8\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{95D7DE68-1364-8F7D-9D54-DEEAE6A972C6}|Assembly-CSharp.csproj|c:\\users\\user\\onedrive\\desktop\\pj\\opensw_team8\\assets\\scripts\\ui\\button\\explanation_button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95D7DE68-1364-8F7D-9D54-DEEAE6A972C6}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\button\\explanation_button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95D7DE68-1364-8F7D-9D54-DEEAE6A972C6}|Assembly-CSharp.csproj|c:\\users\\user\\onedrive\\desktop\\pj\\opensw_team8\\assets\\scripts\\ui\\lobby_record_ui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95D7DE68-1364-8F7D-9D54-DEEAE6A972C6}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\lobby_record_ui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95D7DE68-1364-8F7D-9D54-DEEAE6A972C6}|Assembly-CSharp.csproj|c:\\users\\user\\onedrive\\desktop\\pj\\opensw_team8\\assets\\scripts\\ui\\button\\record_button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95D7DE68-1364-8F7D-9D54-DEEAE6A972C6}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\button\\record_button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95D7DE68-1364-8F7D-9D54-DEEAE6A972C6}|Assembly-CSharp.csproj|c:\\users\\user\\onedrive\\desktop\\pj\\opensw_team8\\assets\\scripts\\ui\\button\\move_lobby_button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95D7DE68-1364-8F7D-9D54-DEEAE6A972C6}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\button\\move_lobby_button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95D7DE68-1364-8F7D-9D54-DEEAE6A972C6}|Assembly-CSharp.csproj|C:\\Users\\user\\OneDrive\\Desktop\\pj\\OpenSW_Team8\\assets\\scripts\\ui\\button\\menu_button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95D7DE68-1364-8F7D-9D54-DEEAE6A972C6}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\button\\menu_button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95D7DE68-1364-8F7D-9D54-DEEAE6A972C6}|Assembly-CSharp.csproj|C:\\Users\\user\\OneDrive\\Desktop\\pj\\OpenSW_Team8\\assets\\scripts\\ui\\button\\pause_button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95D7DE68-1364-8F7D-9D54-DEEAE6A972C6}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\button\\pause_button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95D7DE68-1364-8F7D-9D54-DEEAE6A972C6}|Assembly-CSharp.csproj|c:\\users\\user\\onedrive\\desktop\\pj\\opensw_team8\\assets\\scripts\\ui\\button\\exit_button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95D7DE68-1364-8F7D-9D54-DEEAE6A972C6}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\button\\exit_button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Lobby_Record_UI.cs",
+              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Desktop\\pj\\OpenSW_Team8\\Assets\\Scripts\\UI\\Lobby_Record_UI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Lobby_Record_UI.cs",
+              "ToolTip": "C:\\Users\\user\\OneDrive\\Desktop\\pj\\OpenSW_Team8\\Assets\\Scripts\\UI\\Lobby_Record_UI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\Lobby_Record_UI.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvyIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T13:18:43.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Move_Lobby_Button.cs",
+              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Desktop\\pj\\OpenSW_Team8\\Assets\\Scripts\\UI\\Button\\Move_Lobby_Button.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Button\\Move_Lobby_Button.cs",
+              "ToolTip": "C:\\Users\\user\\OneDrive\\Desktop\\pj\\OpenSW_Team8\\Assets\\Scripts\\UI\\Button\\Move_Lobby_Button.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\Button\\Move_Lobby_Button.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T11:37:11.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Exit_Button.cs",
+              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Desktop\\pj\\OpenSW_Team8\\Assets\\Scripts\\UI\\Button\\Exit_Button.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Button\\Exit_Button.cs",
+              "ToolTip": "C:\\Users\\user\\OneDrive\\Desktop\\pj\\OpenSW_Team8\\Assets\\Scripts\\UI\\Button\\Exit_Button.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\Button\\Exit_Button.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T11:35:33.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Explanation_Button.cs",
+              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Desktop\\pj\\OpenSW_Team8\\Assets\\Scripts\\UI\\Button\\Explanation_Button.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Button\\Explanation_Button.cs",
+              "ToolTip": "C:\\Users\\user\\OneDrive\\Desktop\\pj\\OpenSW_Team8\\Assets\\Scripts\\UI\\Button\\Explanation_Button.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\Button\\Explanation_Button.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T11:14:28.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Menu_Button.cs",
+              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Desktop\\pj\\OpenSW_Team8\\Assets\\Scripts\\UI\\Button\\Menu_Button.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Button\\Menu_Button.cs",
+              "ToolTip": "C:\\Users\\user\\OneDrive\\Desktop\\pj\\OpenSW_Team8\\Assets\\Scripts\\UI\\Button\\Menu_Button.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\Button\\Menu_Button.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T11:11:49.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Record_Button.cs",
+              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Desktop\\pj\\OpenSW_Team8\\Assets\\Scripts\\UI\\Button\\Record_Button.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Button\\Record_Button.cs",
+              "ToolTip": "C:\\Users\\user\\OneDrive\\Desktop\\pj\\OpenSW_Team8\\Assets\\Scripts\\UI\\Button\\Record_Button.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\Button\\Record_Button.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T11:10:12.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Pause_Button.cs",
+              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Desktop\\pj\\OpenSW_Team8\\Assets\\Scripts\\UI\\Button\\Pause_Button.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Button\\Pause_Button.cs",
+              "ToolTip": "C:\\Users\\user\\OneDrive\\Desktop\\pj\\OpenSW_Team8\\Assets\\Scripts\\UI\\Button\\Pause_Button.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\Button\\Pause_Button.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T11:11:42.994Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
