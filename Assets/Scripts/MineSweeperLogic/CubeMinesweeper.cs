@@ -13,6 +13,11 @@ public class CubeMinesweeper : MonoBehaviour
     public int gridSize = 10;
     public int totalMines = 100;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip explosionSound;
+    public AudioClip clickSound;
+
     //core data - private로 외부 접근 차단
     private CellData[,,] board;
 
@@ -515,6 +520,11 @@ public class CubeMinesweeper : MonoBehaviour
     // 좌표를 받아서 게임 규칙대로 처리하는 함수
     void HandleCellClick(int face, int x, int y)
     {
+        if (HPManager.Instance != null && HPManager.Instance.isGameOver)
+        {
+            Debug.Log("신뢰도 0");
+            return; 
+        }
 
         // 아이템2
         if (scanModeActive) // 만약 아이템2를 활성화 했다면
@@ -590,9 +600,23 @@ public class CubeMinesweeper : MonoBehaviour
                 return;
             }
 
+            if (audioSource != null && explosionSound != null)
+            {
+                audioSource.PlayOneShot(explosionSound);
+            }
+
+            float damageAmount = 10f;
+
             cell.isRevealed = true;
             if (visualizer) visualizer.UpdateVisual(face, x, y, cell);
-            Debug.Log($"<color=red>게임 오버</color> ({face}, {x},{y})");
+
+            if (HPManager.Instance != null)
+            {
+                HPManager.Instance.TakeDamage(damageAmount);
+                Debug.Log($"신뢰도 -{damageAmount}");
+            }
+
+            //Debug.Log($"<color=red>게임 오버</color> ({face}, {x},{y})");
             // TODO: 게임오버 UI 호출
             ScoreManager.Instance.AddScore(-10); // 지뢰 밟으면 점수 10 차감
             return;
@@ -600,13 +624,22 @@ public class CubeMinesweeper : MonoBehaviour
         // 경우 2: 빈 땅(0)임 -> Flood Fill 발동!
         else if (cell.mineCount == 0)
         {
-            // FloodFill 함수가 "열기 + 비주얼 업데이트 + 주변 열기"를 다 해줍니다.
+            if (audioSource != null && clickSound != null)
+            {
+                audioSource.pitch = Random.Range(0.9f, 1.1f); 
+                audioSource.PlayOneShot(clickSound);
+            }
             FloodFill(face, x, y, ref openedCount); 
             Debug.Log($"<color=cyan>안전 지대 개방</color> ({face}, {x},{y})");
         }
         // 경우 3: 그냥 숫자임 -> 해당 칸만 염
         else
         {
+            if (audioSource != null && clickSound != null)
+            {
+                audioSource.pitch = Random.Range(0.9f, 1.1f); 
+                audioSource.PlayOneShot(clickSound);
+            }
             cell.isRevealed = true;
             openedCount = 1; // 타일 하나당 1점
             if (visualizer) visualizer.UpdateVisual(face, x, y, cell);

@@ -19,8 +19,10 @@ public class ScoreManager : MonoBehaviour
     {
         // 싱글톤 패턴
         // 인스턴스가 없다면 자신을 등록
-        if (Instance == null)
+        if (Instance == null){
             Instance = this;
+            DontDestroyOnLoad(gameObject); //이걸 왜 안 넣으신거지?
+        }
         else // 이미 존재한다면 중복 생성 방지
             Destroy(gameObject);
     }
